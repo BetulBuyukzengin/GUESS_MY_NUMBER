@@ -89,8 +89,6 @@ export class Game {
   again() {
     document.querySelector(".again").addEventListener("click", () => {
       this.#secretNumber = Math.trunc(Math.random() * 20) + 1;
-    
-
       this.#score = 20;
       document.querySelector(".score").textContent = this.#score;
       this.displayMessage("Start guessing...");
