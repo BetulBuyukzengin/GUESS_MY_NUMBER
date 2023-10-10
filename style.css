@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+  font-family: "Roboto", sans-serif;
+  transition: 0.3s ease-in-out;
+}
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Press Start 2P", sans-serif;
+  color: #eee;
+}
+
+/* Greet Page */
+video {
+  width: 100%;
+  opacity: 0.9;
+  object-fit: cover;
+  height: 100vh;
+  position: absolute;
+}
+.playSection {
+  width: 100%;
+  opacity: 100;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.6s ease-in-out;
+}
+
+.playSection.fade-in {
+  opacity: 0;
+}
+
+/* Aktif sayfa için geçiş efekti */
+.playContent {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.gameHead {
+  color: white;
+  font-size: 40px;
+  width: 45%;
+}
+.play {
+  padding: 2% 5%;
+  font-size: 35px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: 7px solid #907979;
+  font-weight: bold;
+  background: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid white;
+  border-radius: 25px;
+  outline: none;
+  overflow: hidden;
+  color: rgb(255, 255, 255);
+  transition: color 0.3s 0.1s ease-out;
+  text-align: center;
+}
+.play::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  content: "";
+  border-radius: 50%;
+  display: block;
+  width: 20em;
+  height: 20em;
+  left: -5em;
+  text-align: center;
+  transition: box-shadow 0.5s ease-out;
+  z-index: -1;
+}
+.play:hover {
+  color: white;
+  border: 2px solid rgb(236, 137, 236);
+}
+.play:hover::before {
+  box-shadow: inset 0 0 0 10em rgb(254, 255, 248);
+}
+/* GamePlay View  */
+.main {
+  height: 100vh;
+  color: #eee;
+  align-items: center;
+}
+.container {
+  padding: 5% 2%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}
+.headCont {
+  align-items: center;
+   justify-content: space-between; 
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+}
+.header {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 40vh;
+}
+main {
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 60vh;
+}
+h1 {
+  color: wheat;
+  font-size: 40px;
+}
+.between {
+  padding: 0% 35% 0 17%;
+  font-size: 20px;
+}
+.btn {
+  font-size: 15px;
+  padding: 1% 2%;
+  color: white;
+  backdrop-filter: blur(7px) saturate(54%);
+  -webkit-backdrop-filter: blur(7px) saturate(54%);
+  background-color: #10b502;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.again {
+  cursor: pointer;
+}
+.again:hover {
+  background-color: #11b502d7;
+}
+.number {
+  text-align: center;
+  padding: 2% 0;
+  width: 16rem;
+  font-size: 80px;
+  color: white;
+  backdrop-filter: blur(7px) saturate(54%);
+  -webkit-backdrop-filter: blur(7px) saturate(54%);
+  background-color: rgb(140, 28, 192);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+.top{
+width: 50%;
+}
+.message{
+  font-size: 30px;
+  text-align: center;
+}
+.bottom{
+  display: flex;
+  justify-content: space-around;
+  width: 92%;
+}
+.left {
+  width: 52%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: end;
+}
+.right {
+  width: 30%;
+  align-items: start;
+  display: flex;
+  flex-direction: column;
+  font-size: 25px;
+}
+.check {
+  cursor: pointer;
+  padding: 3% 5%;
+  width: 20%;
+  margin-right: 5%;
+  margin-top: 2%;
+  font-weight: bolder;
+  letter-spacing: 1px;
+  border: none;
+}
+.check:hover {
+  background-color: #11b502d7;
+}
+.guess {
+  width: 30%;
+  border-radius: 10px;
+  background-color: blueviolet;
+  color: white;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  border: none;
+  padding: 3%;
+}
+.guess::placeholder {
+  color: white;
+  caret-color: white;
+}
+.label-score {
+  padding: 4% 0;
+}
+
+.hidden {
+  display: none;
+}
+
+.myNumber {
+  font-family: fantasy;
+  color: #f72585;
+  background-color: whitesmoke;
+  border: 1px solid white;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  padding: 2% 3%;
+  box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
+  -webkit-box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
+}
+
+/* .score{
+
+} */
+
+.secondNumber {
+  font-size: 30px;
+  color: #fffcfcd2;
+  border: none;
+  border-bottom-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #10b502;
+  box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
+  -webkit-box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
+  -moz-box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
+  padding: 1% 2%;
+}
