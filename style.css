@@ -182,7 +182,13 @@ h1 {
   font-size: 30px;
   text-align: center;
 }
-
+.lostGame{
+  color: #ff0000;
+  background-color: blanchedalmond;
+  font-weight: bold;
+  border-radius: 10px;
+  padding: 2%;
+}
 .messageAnimation {
   animation: scaleIn 2s ease-in-out infinite alternate;
 }
