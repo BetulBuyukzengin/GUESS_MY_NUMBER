@@ -15,7 +15,6 @@ body {
   font-family: "Press Start 2P", sans-serif;
   color: #eee;
 }
-
 /* Greet Page */
 video {
   width: 100%;
@@ -39,7 +38,7 @@ video {
   opacity: 0;
 }
 
-/* Aktif sayfa için geçiş efekti */
+/* active page effect */
 .playContent {
   position: absolute;
   height: 100vh;
@@ -116,7 +115,7 @@ video {
 }
 .headCont {
   align-items: center;
-   justify-content: space-between; 
+  justify-content: space-between;
   display: flex;
   width: 100%;
   flex-direction: row;
@@ -175,14 +174,28 @@ h1 {
   border-radius: 12px;
   border: 1px solid rgba(255, 255, 255, 0.125);
 }
-.top{
-width: 50%;
+.top {
+  width: 50%;
 }
-.message{
+
+.text {
   font-size: 30px;
   text-align: center;
 }
-.bottom{
+
+.messageAnimation {
+  animation: scaleIn 2s ease-in-out infinite alternate;
+}
+@keyframes scaleIn {
+  0% {
+    transform: scale(1.5);
+    color: #10b502;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.bottom {
   display: flex;
   justify-content: space-around;
   width: 92%;
@@ -248,10 +261,6 @@ width: 50%;
   -webkit-box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
   -moz-box-shadow: 13px 9px 28px 4px rgba(0, 0, 0, 0.43);
 }
-
-/* .score{
-
-} */
 
 .secondNumber {
   font-size: 30px;

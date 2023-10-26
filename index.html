@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="img/game.jpg">
     <title>Guess My Number!</title>
     <script defer type="module" src="script.js"></script>
   </head>
+  
   <body>
     <!-- Greet Page -->
     <section class="playSection">
@@ -23,7 +25,7 @@
     </section>
     <!-- GamePlay View -->
     <section class="main hidden">
-      <video>
+      <video id="beforeWin">
         <source src="img/mainVideo.mp4" type="video/mp4" />
       </video>
     <!-- Whole Container on Video -->
@@ -32,13 +34,13 @@
         <div class="headCont">
           <h1 class="secondNumber">Guess My Number!</h1>
           <p class="between">[ Between 1 and 20 ]</p>
-          <button class="btn again">Again</button>
+          <button disabled class="btn again">Again</button>
         </div>
         <div class="number">?</div>
       </div>
       <main>
         <section class="top">
-          <p class="message">Start guessing...</p>
+          <p class="text">Start guessing...</p>
         </section>
         <section class="bottom">
           <section class="left">
@@ -52,7 +54,7 @@
             <button class="btn check">Check</button>
           </section>
           <section class="right">
-            <p class="label-score">💯 Score: <span class="score">20</span></p>
+            <p class="label-score"> Score: <span class="score">20</span></p>
             <p class="label-highscore">
               🥇 Highscore: <span class="highscore">0</span>
             </p>

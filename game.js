@@ -1,5 +1,4 @@
 // Export Selections :
-//Selections
 export const main = document.querySelector(".main");
 export const playSection = document.querySelector(".playSection");
 export const butonPlay = document.querySelector(".play");
@@ -8,9 +7,13 @@ export const video = document.querySelectorAll("video");
 export const mainVideo = document.querySelector(".mainVideo");
 export const winVideo = document.querySelector(".winVideo");
 export const mainWin = document.querySelector(".mainWin");
+export const beforeWin = document.querySelector("#beforeWin");
+export const msgText = document.querySelector(".text");
+export const againBtn = document.querySelector(".again");
 
-// Guess My Number Class
+
 export class Game {
+  html;
   #score = 20; //starter score
   #highScore = 0;
   #secretNumber = Math.trunc(Math.random() * 20) + 1; // Hold it on global scope Cuz each click creates new random number.
@@ -20,7 +23,7 @@ export class Game {
     this.keyNClick();
     this.again();
   }
-  //play btn
+
   play() {
     butonPlay.addEventListener("click", function () {
       playSection.classList.add("fade-in");
@@ -55,7 +58,7 @@ export class Game {
     });
   }
   displayMessage(message) {
-    document.querySelector(".message").textContent = message;
+    document.querySelector(".text").textContent = message;
   }
   //Data control
   dataIsValid() {
@@ -63,9 +66,17 @@ export class Game {
     if (!guess) {
       this.displayMessage("Not a number!");
     } else if (this.#secretNumber === guess) {
+      againBtn.disabled = false;
       document.querySelector(".number").textContent = this.#secretNumber; //  random number show in box
-
       this.displayMessage("Correct Number!");
+      beforeWin.classList.add("hidden");
+      this.html = `
+       <video autoplay loop>
+         <source src="img/win.mp4" type="video/mp4" />
+       </video> 
+      `;
+      main.insertAdjacentHTML("afterbegin", this.html);
+      msgText.classList.add("messageAnimation");
       if (this.#score > this.#highScore) {
         this.#highScore = this.#score;
         document.querySelector(".highscore").textContent = this.#highScore;
@@ -79,6 +90,7 @@ export class Game {
         document.querySelector(".score").textContent = this.#score;
         document.querySelector(".guess").value = "";
       } else {
+        againBtn.disabled = false;
         this.displayMessage("You lost the game!");
         document.querySelector(".score").textContent = 0;
         document.querySelector("input").disabled = true; // blocks input
@@ -90,8 +102,12 @@ export class Game {
     document.querySelector(".again").addEventListener("click", () => {
       this.#secretNumber = Math.trunc(Math.random() * 20) + 1;
       this.#score = 20;
+      beforeWin.classList.remove("hidden");
+      const data = document.querySelector("#beforeWin").closest(".main");
+      data.firstElementChild.style.display = "none";
       document.querySelector(".score").textContent = this.#score;
       this.displayMessage("Start guessing...");
+      msgText.classList.remove("messageAnimation");
       document.querySelector(".number").textContent = "?";
       document.querySelector(".number").style.width = "15rem";
       document.querySelector(".guess").value = "";
