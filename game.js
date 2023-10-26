@@ -143,20 +143,6 @@ export class Game {
       msgText.classList.remove('lostGame');
     });
   }
-  // Check data on keydown and click
-  /*   keyNClick() {
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        this.dataIsValid();
-      }
-     
-    });
-    document.querySelector(".check").addEventListener("click", () => {
-      this.dataIsValid();
-    });
-  }
- */
-
   keyNClick() {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter" && !this.gameIsOver) {
