@@ -10,9 +10,11 @@ export const mainWin = document.querySelector(".mainWin");
 export const beforeWin = document.querySelector("#beforeWin");
 export const msgText = document.querySelector(".text");
 export const againBtn = document.querySelector(".again");
-
+export const guessInput = document.querySelector(".guess");
+export const checkBtn = document.querySelector(".check");
 
 export class Game {
+  gameIsOver = false;
   html;
   #score = 20; //starter score
   #highScore = 0;
@@ -66,6 +68,7 @@ export class Game {
     if (!guess) {
       this.displayMessage("Not a number!");
     } else if (this.#secretNumber === guess) {
+      this.gameIsOver = true;
       againBtn.disabled = false;
       document.querySelector(".number").textContent = this.#secretNumber; //  random number show in box
       this.displayMessage("Correct Number!");
@@ -81,6 +84,8 @@ export class Game {
         this.#highScore = this.#score;
         document.querySelector(".highscore").textContent = this.#highScore;
       }
+      checkBtn.disabled = true;
+      guessInput.disabled=true;
     } else if (this.#secretNumber !== guess) {
       if (this.#score > 1) {
         this.displayMessage(
@@ -94,6 +99,8 @@ export class Game {
         this.displayMessage("You lost the game!");
         document.querySelector(".score").textContent = 0;
         document.querySelector("input").disabled = true; // blocks input
+        this.gameIsOver = true;
+        guessInput.disabled = true;
       }
     }
   }
@@ -112,12 +119,29 @@ export class Game {
       document.querySelector(".number").style.width = "15rem";
       document.querySelector(".guess").value = "";
       document.querySelector("input").disabled = false;
+      this.gameIsOver = false;
+      checkBtn.disabled = false;
+      guessInput.disabled=false;
+
     });
   }
   // Check data on keydown and click
-  keyNClick() {
+  /*   keyNClick() {
     document.addEventListener("keydown", (e) => {
       if (e.key === "Enter") {
+        this.dataIsValid();
+      }
+     
+    });
+    document.querySelector(".check").addEventListener("click", () => {
+      this.dataIsValid();
+    });
+  }
+ */
+
+  keyNClick() {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" && !this.gameIsOver) {
         this.dataIsValid();
       }
     });
