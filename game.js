@@ -93,7 +93,7 @@ export class Game {
     else if (this.#secretNumber !== this.guess) {
       if (this.#score > 1) {
         this.displayMessage(
-          this.guess > this.#secretNumber ? "Too high! " : "Too low"
+          this.guess > this.#secretNumber ? "Too high! " : "Too low!"
         );
         this.#score--;
         document.querySelector(".score").textContent = this.#score;
